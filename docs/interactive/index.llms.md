@@ -138,25 +138,9 @@ The Shiny package provides a flexible, easy to use framework for creating intera
 
 Here’s a live example of Shiny interactive components along with a brief explanation of the code required to create them:
 
-## Google Trend Index
+### Please Wait
 
-**Trend index**
-
-Advertising & marketing Education Small business Travel Unemployment
-
-**Date range**
-
-to
-
-**Overlay smooth trend line**
-
-Smoother span:
-
-[ ](_w_3fd146897f6b4f8093757a4a80323f0b/#)
-
-Higher values give more smoothness.
-
-[Source: Google Domestic Trends](https://www.google.com/finance/domestic_trends)
+![loading](/__static__/frontend/images/spinner.gif?v=ce6bcde20b2f6c562913c06be83f9e7c8a19b008017407a3094b76fa82bbd6b7f4048e032e07e534d4ab5442b9105294d612863735077ab13a47653a14c5866e)
 
   
 
