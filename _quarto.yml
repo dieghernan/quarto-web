@@ -678,9 +678,6 @@ format:
   html:
     respect-user-color-scheme: true
     toc: true
-    theme:
-      light: [cosmo, theme.scss]
-      dark: [cosmo, theme-dark.scss]
     code-copy: true
     code-overflow: wrap
     css: styles.css
@@ -707,6 +704,10 @@ filters:
     path: filters/include-dark.lua
 
 freeze: true
+
+brand:
+  light: light_brand.yml
+  dark: dark_brand.yml
 
 profile:
   group:
