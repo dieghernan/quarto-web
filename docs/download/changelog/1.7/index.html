@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1.7 Release Notes – Quarto</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete-preset-algolia.umd.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../favicon.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-086f9cbb3936007bfbc1efbf20ff0919.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7f58a9878157cdf4cf7c9c6f6364f8f5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-086f9cbb3936007bfbc1efbf20ff0919.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-24e086a1b4bce6e0c252ddeaa7930761.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-4f565ad424abaaa68e5967409fb69ff7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-24e086a1b4bce6e0c252ddeaa7930761.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "algolia": {
+    "application-id": "ZPJB5I1QN7",
+    "search-only-api-key": "49ee55c4d51cbb25a06182d9eef55814",
+    "index-name": "prod_QUARTO",
+    "analytics-events": true,
+    "show-logo": true,
+    "libDir": "site_libs",
+    "cookie-consent-enabled": false
+  },
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+
+
+<script type="text/javascript">
+var ALGOLIA_INSIGHTS_SRC = "https://cdn.jsdelivr.net/npm/search-insights/dist/search-insights.iife.min.js";
+!function(e,a,t,n,s,i,c){e.AlgoliaAnalyticsObject=s,e[s]=e[s]||function(){
+(e[s].queue=e[s].queue||[]).push(arguments)},i=a.createElement(t),c=a.getElementsByTagName(t)[0],
+i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
+}(window,document,"script",ALGOLIA_INSIGHTS_SRC,"aa");
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-algolia-insights">
+
+</script>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async="" src="https://plausible.io/js/pa-WsQrku1HW6QA9X0TMT1XI.js"></script>
+<script>
+  window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
+  plausible.init()
+</script>
+<script src="https://cdn.jsdelivr.net/gh/posit-dev/supported-by-posit/js/badge.min.js" data-light-bg="#E8EDF2" data-light-text="#404041" data-light-lt="#ee6331" data-light-gt="#447099" data-dark-bg="#333333" data-dark-lt="#ffffff" data-dark-gt="#ffffff"></script>
+
+
+<link rel="stylesheet" href="../../../../styles.css">
+<meta property="og:title" content="1.7 Release Notes – Quarto">
+<meta property="og:image" content="https://quarto.org/docs/download/changelog/1.7/quarto-dark-bg.jpeg">
+<meta property="og:site_name" content="Quarto">
+<meta name="twitter:title" content="1.7 Release Notes – Quarto">
+<meta name="twitter:image" content="https://quarto.org/docs/download/changelog/1.7/quarto-dark-bg.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../quarto.png" alt="Quarto logo." class="navbar-logo light-content">
+    <img src="../../../../quarto.png" alt="Quarto logo." class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/get-started/index.html"> 
+<span class="menu-text">Get Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/guide/index.html"> 
+<span class="menu-text">Guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/extensions/index.html"> 
+<span class="menu-text">Extensions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/reference/index.html"> 
+<span class="menu-text">Reference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/gallery/index.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Help</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/quarto-dev/quarto-cli/issues"><i class="bi bi-bug" role="img">
+</i> 
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/quarto-dev/quarto-cli/discussions"><i class="bi bi-chat-right-text" role="img">
+</i> 
+ <span class="dropdown-text">Ask a Question</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../docs/faq/index.html"><i class="bi bi-question-circle" role="img">
+</i> 
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://bsky.app/profile/quarto.org" title="" class="quarto-navigation-tool px-1" aria-label="Quarto Bluesky"><i class="bi bi-bluesky"></i></a>
+    <a href="https://github.com/quarto-dev/quarto-cli" title="Quarto GitHub" class="quarto-navigation-tool px-1" aria-label="Quarto GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://quarto.org/docs/blog/index.xml" title="Quarto Blog RSS" class="quarto-navigation-tool px-1" aria-label="Quarto Blog RSS"><i class="bi bi-rss"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#v1.8-backports" id="toc-v1.8-backports" class="nav-link active" data-scroll-target="#v1.8-backports">v1.8 backports</a>
+  <ul class="collapse">
+  <li><a href="#in-this-release" id="toc-in-this-release" class="nav-link" data-scroll-target="#in-this-release">In this release</a></li>
+  <li><a href="#in-previous-releases" id="toc-in-previous-releases" class="nav-link" data-scroll-target="#in-previous-releases">In previous releases</a></li>
+  </ul></li>
+  <li><a href="#v1.7-changes" id="toc-v1.7-changes" class="nav-link" data-scroll-target="#v1.7-changes">v1.7 changes</a>
+  <ul class="collapse">
+  <li><a href="#regression-fixes" id="toc-regression-fixes" class="nav-link" data-scroll-target="#regression-fixes">Regression fixes</a></li>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
+  <li><a href="#yaml-validation" id="toc-yaml-validation" class="nav-link" data-scroll-target="#yaml-validation">YAML validation</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects">Projects</a>
+  <ul class="collapse">
+  <li><a href="#website" id="toc-website" class="nav-link" data-scroll-target="#website"><code>website</code></a></li>
+  <li><a href="#blog" id="toc-blog" class="nav-link" data-scroll-target="#blog"><code>blog</code></a></li>
+  <li><a href="#book" id="toc-book" class="nav-link" data-scroll-target="#book"><code>book</code></a></li>
+  </ul></li>
+  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands">Commands</a>
+  <ul class="collapse">
+  <li><a href="#quarto-check" id="toc-quarto-check" class="nav-link" data-scroll-target="#quarto-check"><code>quarto check</code></a></li>
+  <li><a href="#quarto-convert" id="toc-quarto-convert" class="nav-link" data-scroll-target="#quarto-convert"><code>quarto convert</code></a></li>
+  <li><a href="#quarto-inspect" id="toc-quarto-inspect" class="nav-link" data-scroll-target="#quarto-inspect"><code>quarto inspect</code></a></li>
+  </ul></li>
+  <li><a href="#formats" id="toc-formats" class="nav-link" data-scroll-target="#formats">Formats</a>
+  <ul class="collapse">
+  <li><a href="#dashboard" id="toc-dashboard" class="nav-link" data-scroll-target="#dashboard"><code>dashboard</code></a></li>
+  <li><a href="#html" id="toc-html" class="nav-link" data-scroll-target="#html"><code>html</code></a></li>
+  <li><a href="#pdf" id="toc-pdf" class="nav-link" data-scroll-target="#pdf"><code>pdf</code></a></li>
+  <li><a href="#jats" id="toc-jats" class="nav-link" data-scroll-target="#jats"><code>jats</code></a></li>
+  <li><a href="#revealjs" id="toc-revealjs" class="nav-link" data-scroll-target="#revealjs"><code>revealjs</code></a></li>
+  <li><a href="#typst-format" id="toc-typst-format" class="nav-link" data-scroll-target="#typst-format"><code>typst</code> format</a></li>
+  </ul></li>
+  <li><a href="#engines" id="toc-engines" class="nav-link" data-scroll-target="#engines">Engines</a>
+  <ul class="collapse">
+  <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia"><code>julia</code></a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter"><code>jupyter</code></a></li>
+  </ul></li>
+  <li><a href="#quarto-pdf-rendering" id="toc-quarto-pdf-rendering" class="nav-link" data-scroll-target="#quarto-pdf-rendering">Quarto PDF rendering</a></li>
+  <li><a href="#shiny" id="toc-shiny" class="nav-link" data-scroll-target="#shiny">Shiny</a></li>
+  <li><a href="#lua-filters-and-extensions" id="toc-lua-filters-and-extensions" class="nav-link" data-scroll-target="#lua-filters-and-extensions">Lua Filters and extensions</a>
+  <ul class="collapse">
+  <li><a href="#conditional-content" id="toc-conditional-content" class="nav-link" data-scroll-target="#conditional-content">Conditional Content</a></li>
+  <li><a href="#quarto-lua-api" id="toc-quarto-lua-api" class="nav-link" data-scroll-target="#quarto-lua-api">Quarto Lua API</a></li>
+  </ul></li>
+  <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages">Languages</a></li>
+  <li><a href="#quarto-publish" id="toc-quarto-publish" class="nav-link" data-scroll-target="#quarto-publish"><code>quarto publish</code></a></li>
+  <li><a href="#other-fixes-and-improvements" id="toc-other-fixes-and-improvements" class="nav-link" data-scroll-target="#other-fixes-and-improvements">Other Fixes and Improvements</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/quarto-dev/quarto-web/edit/main/docs/download/changelog/1.7/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/quarto-dev/quarto-cli/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">1.7 Release Notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="v1.8-backports" class="level1">
+<h1>v1.8 backports</h1>
+<section id="in-this-release" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-release">In this release</h2>
+</section>
+<section id="in-previous-releases" class="level2">
+<h2 class="anchored" data-anchor-id="in-previous-releases">In previous releases</h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/6607">#6607</a>): Add missing beamer template update for beamer theme options: <code>colorthemeoptions</code>, <code>fontthemeoptions</code>, <code>innerthemeoptions</code> and <code>outerthemeoptions</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12625">#12625</a>): Fire resize event on window when light/dark toggle is clicked, to tell widgets to resize.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12657">#12657</a>): Load Giscus in generated script tag, to avoid wrong-theming in Chrome.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12700">#12700</a>): Giscus not loading on a site without dark mode configured.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12780">#12780</a>): <code>keep-ipynb: true</code> now works again correctly and intermediate <code>.quarto_ipynb</code> is not removed.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12627">#12627</a>): Don’t actually install extension when user responds <code>yes</code> to first prompt but <code>no</code> to second.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12753">#12753</a>): Support change in IPython 9+ and import <code>set_matplotlib_formats</code> from <code>matplotlib_inline.backend_inline</code> in the internal <code>setup.py</code> script used to initialize rendering with Jupyter engine.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12870/">#12870</a>): Update QuartoNotebookRunner to 0.17.3.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/13051">#13051</a>): Fixed support for captioned Markdown table inside Div syntax for crossref. This is special handling, but this could be output by function like <code>knitr::kable()</code> with old option support.</li>
+</ul>
+</section>
+</section>
+<section id="v1.7-changes" class="level1">
+<h1>v1.7 changes</h1>
+<section id="regression-fixes" class="level2">
+<h2 class="anchored" data-anchor-id="regression-fixes">Regression fixes</h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11509">#11509</a>): Fix link-decoration regression in HTML formats.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11532">#11532</a>): Fix regression for <a href="https://github.com/quarto-dev/quarto-cli/issues/660">#660</a>, which causes files to have incorrect permissions when Quarto is installed in a location not writable by the current user.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11549">#11549</a>): Fix regression in rendering <code>dashboard</code> tabsets into cards without titles.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11561">#11561</a>): Fix a regression with <code>$border-color</code> that impacted, callouts borders, tabset borders, and table borders of the defaults themes. <code>$border-color</code> is now correctly a mixed of <code>$body-color</code> and <code>$body-bg</code> even for the default theme.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11580">#11580</a>): Fix regression with documents containing <code>categories</code> fields that are not strings.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11659">#11659</a>): <code>julia</code> engine - Fix escaping bug where paths containing spaces or backslashes break server startup on Windows.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11752">#11752</a>): Fix regression with non-alphanumeric characters in <code>categories</code> preventing correct filtering of listing.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11943">#11943</a>): Fix callout title color on dark theme in revealjs following Revealjs update in quarto 1.6.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11990">#11990</a>): Do not print parameter cell in parameterized Jupyter notebooks.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12147">#12147</a>): for RevealJS format, <code>serif</code> and <code>simple</code> themes defaults back to have their heading color (<code>$presentation-heading-color</code>) to be the same as the body color (<code>$body-color</code>) as in Quarto 1.5.</li>
+</ul>
+</section>
+<section id="dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
+<ul>
+<li>Update <code>typst</code> to <code>0.13.0</code>.</li>
+<li>Update <code>pandoc</code> to <code>3.6.3</code>.</li>
+<li>Update <code>dart-sass</code> to <code>1.85.1</code>.</li>
+<li>Update <code>esbuild</code> to <code>0.19.12</code>.</li>
+</ul>
+</section>
+<section id="yaml-validation" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-validation">YAML validation</h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10251">#10251</a>): EJS template for website now uses proper object to get alt text for logo in sidebar.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11654">#11654</a>): Allow <code>page-inset</code> as value in <code>column</code> key for code cells.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12151">#12151</a>): Fix YAML validation in computations cell on Windows. Validate YAML in documents in <code>julia</code> engine.</li>
+</ul>
+</section>
+<section id="projects" class="level2">
+<h2 class="anchored" data-anchor-id="projects">Projects</h2>
+<section id="website" class="level3">
+<h3 class="anchored" data-anchor-id="website"><code>website</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/8238">#8238</a>): Listing categories are now sorted case-insensitively.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10501">#10501</a>): Improve documentation of <code>repo-actions</code> option.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11701">#11701</a>): Wrap HTML emitted by EJS templates in <code>{=html}</code> blocks to avoid memory blowup issues with Pandoc’s parser.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12134">#12134</a>): Forward <code>logo.small</code> images in <code>_brand.yml</code> files to a website <code>favicon</code>.</li>
+</ul>
+</section>
+<section id="blog" class="level3">
+<h3 class="anchored" data-anchor-id="blog"><code>blog</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11745">#11745</a>): Fix categories links under post title in post with url encoded path (e.g.&nbsp;with space or other special characters).</li>
+</ul>
+</section>
+<section id="book" class="level3">
+<h3 class="anchored" data-anchor-id="book"><code>book</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11520">#11520</a>): Book’s cover image now escapes lightbox treatment, which was incorrectly applied to it when <code>lightbox: true</code> was set in the book’s configuration.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12134">#12134</a>): Forward <code>logo.small</code> images in <code>_brand.yml</code> files to the <code>favicon</code> of the book’s website.</li>
+</ul>
+</section>
+</section>
+<section id="commands" class="level2">
+<h2 class="anchored" data-anchor-id="commands">Commands</h2>
+<section id="quarto-check" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-check"><code>quarto check</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10047">#10047</a>): <code>quarto check</code> will now check binary dependency versions strictly by default. Use <code>quarto check --no-strict</code> to revert to old behavior.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10561">#10561</a>): <code>quarto check</code> will now report paths of binary dependencies.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11608">#11608</a>): Do not issue error message when calling <code>quarto check info</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12433">#12433</a>): Add <code>--output</code> option to <code>quarto check</code> to produce structured JSON output.</li>
+</ul>
+</section>
+<section id="quarto-convert" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-convert"><code>quarto convert</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12042">#12042</a>): Preserve Markdown content that follows YAML metadata in a <code>raw</code> .ipynb cell.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12318">#12318</a>): Ensure enough line breaks between cells that might be trimmed.</li>
+</ul>
+</section>
+<section id="quarto-inspect" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-inspect"><code>quarto inspect</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12336">#12336</a>): Clean up transient files created by <code>quarto inspect</code>.</li>
+</ul>
+</section>
+</section>
+<section id="formats" class="level2">
+<h2 class="anchored" data-anchor-id="formats">Formats</h2>
+<section id="dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="dashboard"><code>dashboard</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11338">#11338</a>): Remove unused datatables imports when appropriate.</li>
+</ul>
+</section>
+<section id="html" class="level3">
+<h3 class="anchored" data-anchor-id="html"><code>html</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/1325">#1325</a>): Dark Mode pages should not flash light on reload. (Nor should Light Mode pages flash dark.)</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/1470">#1470</a>): <code>respect-user-color-scheme</code> enables checking the media query <code>prefers-color-scheme</code> for user dark mode preference. Author preference still influences stylesheet order and NoJS experience. Defaults to <code>false</code>, leaving to author preference.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10780">#10780</a>): improve <code>link-external-filter</code> documentation.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11860">#11860</a>): ES6 modules that import other local JS modules in documents with <code>embed-resources: true</code> are now correctly embedded.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11911">#11911</a>): Code highlighting colors for tokens are now the same between code blocks and inline code when using Pandoc’s syntax highlighting.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12118">#12118</a>): Don’t hide <code>:focus</code> on code-copy button.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12277">#12277</a>): Provide light and dark plot and table renderings with <code>renderings: [light,dark]</code></li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12307">#12307</a>): Tabsets using <code>tabby.js</code> in non-boostrap html (<code>theme: pandoc</code>, <code>theme: none</code> or <code>minimal: true</code>) now correctly render reactive content when <code>server: shiny</code> is used.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12319">#12319</a>): Provide switchable light and dark brands for a page with <code>brand.light</code> and <code>brand.dark</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12356">#12356</a>): Remove duplicate id in HTML document when using <code>#lst-</code> prefix label for using Quarto crossref.</li>
+</ul>
+</section>
+<section id="pdf" class="level3">
+<h3 class="anchored" data-anchor-id="pdf"><code>pdf</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11695">#11695</a>): Translate ANSI color codes more carefully inside <code>highlighting</code> environments.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11835">#11835</a>): Take markdown structure into account when detecting minimum heading level.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11878">#11878</a>, <a href="https://github.com/quarto-dev/quarto-cli/issues/12085">#12085</a>): Correctly fixup raw LaTeX table having an unexpected table env with options (e.g <code>\begin{table}[!ht]</code>) to be handled as crossref table.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11903">#11903</a>): <code>crossref</code> configuration like <code>fig-title</code> or <code>tbl-title</code> now correctly supports multi word values, e.g.&nbsp;<code>fig-title: 'Supplementary Figure'</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12344">#12344</a>): Ensure decorated code blocks do not float when inside layout elements.</li>
+<li>Update to Pandoc’s LaTeX template following Pandoc 3.6.3 support:
+<ul>
+<li><code>format: beamer</code> now uses its own template. The main template for latex does not use <code>$if(beamer)$</code> anymore, and the new template for beamer uses the same partials as latex one.</li>
+<li>Improved Babel support:
+<ul>
+<li>New <code>babeloptions</code> variable in the template to allow for more flexible Babel options.</li>
+<li><code>doc-class.tex</code> Quarto’s partial has been updated as Babel options have been moved to <code>documentclass</code> definition in <code>doc-class.tex</code> Quarto’s partial.</li>
+</ul></li>
+<li>New partials available for <code>format: latex</code> and <code>format: beamer</code>:
+<ul>
+<li>Pandoc now uses partials for its latex templates, and they are available through <code>template-partials</code>. Pandoc’s partials uses <code>.latex</code> extension: <code>passoptions.latex</code>, <code>common.latex</code>, <code>font-settings.latex</code>, <code>fonts.latex</code>, <code>hypersetup.latex</code>, <code>after-header-includes.latex</code></li>
+<li>New Quarto partials: <code>babel-lang.tex</code>, <code>biblio-config.tex</code>. Quarto’s partials uses <code>.tex</code> extension.</li>
+</ul></li>
+<li>BREAKING CHANGE for templates authors: <code>common.latex</code> does now uses <code>pandoc.tex</code> partial from Quarto, which include now part of the content that was in main <code>template.tex</code>. If you modify <code>pandoc.tex</code> as part of a custom format, it should be updated to new content.</li>
+</ul></li>
+</ul>
+</section>
+<section id="jats" class="level3">
+<h3 class="anchored" data-anchor-id="jats"><code>jats</code></h3>
+<ul>
+<li>Update to Pandoc’s template following Pandoc 3.6.3 support:
+<ul>
+<li><code>article.jats_publishing</code> partials now support <code>author.roles</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="revealjs" class="level3">
+<h3 class="anchored" data-anchor-id="revealjs"><code>revealjs</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12307">#12307</a>): Tabsets using <code>tabby.js</code> in Revealjs now correctly render reactive content when <code>server: shiny</code> is used.</li>
+</ul>
+</section>
+<section id="typst-format" class="level3">
+<h3 class="anchored" data-anchor-id="typst-format"><code>typst</code> format</h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11578">#11578</a>): Typst column layout widths use fractional <code>fr</code> units instead of percent <code>%</code> units for unitless and default widths in order to fill the enclosing block and not spill outside it.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11676">#11676</a>): Convert unitless image widths from pixels to inches for column layouts.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11835">#11835</a>): Take markdown structure into account when detecting minimum heading level.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11964">#11964</a>): Using panel layout without a crossref label now correctly do not add an empty <code>#block[]</code> that was leading to an unnecessary space in output.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12387">#12387</a>): <code>brand-mode</code> chooses whether to use <code>light</code> (default) or <code>dark</code> brand yml.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11825">#12825</a>): Callouts look better with dark brands, mixing the title color and using brand background color for body.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12354">#12354</a>): CodeBlock in Listing with <code>#lst-</code> prefix are now correctly highlighted.</li>
+</ul>
+</section>
+</section>
+<section id="engines" class="level2">
+<h2 class="anchored" data-anchor-id="engines">Engines</h2>
+<section id="julia" class="level3">
+<h3 class="anchored" data-anchor-id="julia"><code>julia</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11803">#11803</a>): Added subcommands <code>status</code>, <code>kill</code>, <code>close [--force]</code> and <code>log</code> under the new CLI command <code>quarto call engine julia</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12121">#12121</a>): Update QuartoNotebookRunner to 0.17.0. Support for evaluating Python cells via <a href="https://github.com/JuliaPy/PythonCall.jl">PythonCall.jl</a> added. Support for notebook caching via <code>execute.cache</code> added.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12151">#12151</a>): Basic YAML validation is now active for documents using Julia engine.</li>
+</ul>
+</section>
+<section id="jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter"><code>jupyter</code></h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/9089">#9089</a>): Serialize compound <code>jupyter</code> metadata into a special key-value attribute to not break Pandoc’s fenced div parsing.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10113">#10113</a>): KaTeX will now load correctly in <code>engine: jupyter</code> documents using <code>emebed-resources: true</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12114">#12114</a>): <code>JUPYTERCACHE</code> environment variable from <a href="https://jupyter-cache.readthedocs.io/en/latest/using/cli.html">Jupyter cache CLI</a> is now respected by Quarto when <code>cache: true</code> is used. This environment variable allows to change the path of the cache directory.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12228">#12228</a>): <code>quarto render</code> will now fails if errors are detected at IPython display level. Setting <code>error: true</code> globally or at cell level will keep the error to show in output and not stop the rendering.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12374">#12374</a>): Detect language properly in Jupyter notebooks that lack the <code>language</code> field in their <code>kernelspec</code>s.</li>
+</ul>
+</section>
+</section>
+<section id="quarto-pdf-rendering" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-pdf-rendering">Quarto PDF rendering</h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12194">#12194</a>): More specific checks added in log parsing to automatically find missing fonts.</li>
+</ul>
+</section>
+<section id="shiny" class="level2">
+<h2 class="anchored" data-anchor-id="shiny">Shiny</h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12059">#12059</a>): <code>quarto preview</code> now correctly run on Windows an interactive Quarto doc with Jupyter engine and py-shiny, when using a <code>*.py</code> file as resource.</li>
+</ul>
+</section>
+<section id="lua-filters-and-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="lua-filters-and-extensions">Lua Filters and extensions</h2>
+<ul>
+<li>Add <code>quarto.paths.tinytex_bin_dir</code> to Quarto’s Lua API. If TinyTeX is found by Quarto, this will be set to the path to the <code>bin</code> directory of the TinyTeX installation where command line tool are located (e.g., <code>pdflatex</code>, <code>tlmgr</code>, etc.). If TinyTeX is not found, this will be <code>nil</code>, meaning Quarto will use the system PATH to find the command line tools.</li>
+<li>Fix <code>pandoc.mediabag</code> Lua typings so autocompletions work with the Lua LSP integration.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11379">#11379</a>): Add <code>version</code> shortcode to display the current Quarto version.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11526">#11526</a>): General improvements to the style and robustness of Quarto’s Lua code. This also provides a new public function <code>quarto.utils.is_empty_node</code> that allows to check whether a node is empty, i.e., whether it’s an empty list, has no child nodes, and contains no text.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11664">#11664</a>): <code>lipsum</code> shortcode is no longer randomly generated by default, use <code>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.Etiam maximus accumsan gravida. Maecenas at nunc dignissim, euismod enim ac, bibendum ipsum. Maecenas vehicula velit in nisl aliquet ultricies. Nam eget massa interdum, maximus arcu vel, pretium erat. Maecenas sit amet tempor purus, vitae aliquet nunc. Vivamus cursus urna velit, eleifend dictum magna laoreet ut. Duis eu erat mollis, blandit magna id, tincidunt ipsum. Integer massa nibh, commodo eu ex vel, venenatis efficitur ligula. Integer convallis lacus elit, maximus eleifend lacus ornare ac. Vestibulum scelerisque viverra urna id lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget enim at diam bibendum tincidunt eu non purus. Nullam id magna ultrices, sodales metus viverra, tempus turpis.Duis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</code> to restore randomness.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11699">#11699</a>): Fix crash with <code>video</code> shortcode inside HTML comments.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11896">#11896</a>): fix <code>\f</code> (<code></code>) form feed character not valid in PowerPoint (<code>pptx</code>).</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12326">#12326</a>): Add <code>quarto.shortcode.*</code> API entry points for shortcode developers.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12365">#12365</a>): <code>brand color</code> shortcode takes an optional <code>brandMode</code> second parameter, default <code>light</code>.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12453">#12453</a>): Expose <code>_quarto.modules.brand</code> as <code>quarto.brand</code> and add <code>has_mode()</code> function.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12564">#12564</a>): <code>brand logo</code> shortcode also takes an optional <code>brandMode</code> second parameter, default <code>light</code>.</li>
+</ul>
+<section id="conditional-content" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-content">Conditional Content</h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12462">#4411</a>): Added support for new format and aliases in <code>when-format</code> and <code>unless-format</code>: <code>confluence</code>, <code>docusaurus</code> (and <code>docusaurus-md</code>), <code>email</code>, <code>dashboard</code>, <code>gfm</code>, <code>hugo</code> (and <code>hugo-md</code>).</li>
+</ul>
+</section>
+<section id="quarto-lua-api" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-lua-api">Quarto Lua API</h3>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12462">#4411</a>): <code>quarto.format.is_format</code> is now working as expected with support of more aliases: <code>confluence</code>, <code>docusaurus</code> (and <code>docusaurus-md</code>), <code>email</code>, <code>dashboard</code>, <code>gfm</code>, <code>hugo</code> (and <code>hugo-md</code>)</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12299">#12299</a>): <code>quarto.doc.pdf_engine()</code> now correctly returns the PDF engine used for the document. <code>quarto.doc.cite_method()</code> now returns <code>nil</code> if no citation method will be used (i.e.&nbsp;no references is the document set).</li>
+</ul>
+</section>
+</section>
+<section id="languages" class="level2">
+<h2 class="anchored" data-anchor-id="languages">Languages</h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12366">#12366</a>): Added Bulgarian translation for Quarto UI text (credit: <span class="citation" data-cites="sakelariev">@sakelariev</span>)</li>
+</ul>
+</section>
+<section id="quarto-publish" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-publish"><code>quarto publish</code></h2>
+<ul>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/9929">#9929</a>): <code>quarto publish gh-pages</code> will now clean previous worktree directory leftover from previous deploys.</li>
+</ul>
+</section>
+<section id="other-fixes-and-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="other-fixes-and-improvements">Other Fixes and Improvements</h2>
+<ul>
+<li>A new folder <code>quarto-session-temp</code> can be created in <code>.quarto</code> to store temporary files created by Quarto during a rendering. Reminder: <code>.quarto</code> is for internal use of Quarto and should not be versioned (thus added to <code>.gitignore</code>).</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/commit/fb38eb56c11e09f44cef58fd3b697ff24bb5a3f3">fb38eb5</a>) Use the <code>latest</code> parser for Acorn when analyzing JS code imported from OJS blocks.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/7260">#7260</a>): Add support for <code>active</code> class in tabsets so the <code>.active</code> tab shows up by default.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/7757">#7757</a>): Session temporary files are now cleaned up when the session ends abnormally (e.g.&nbsp;<code>Ctrl+C</code>) also on Windows.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/8613">#8613</a>): Fix <code>giscus</code> color on load to support dark mode (by <span class="citation" data-cites="kv9898">@kv9898</span>).</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/9867">#9867</a>): Blank lines are now trimmed in Raw HTML Table blocks.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10532">#10532</a>): Changed default of <code>--headless=old</code> to <code>--headless</code> as <a href="https://developer.chrome.com/blog/removing-headless-old-from-chrome">Chrome 132 has removed old headless mode</a> and only support new mode. To use old mode, set <code>QUARTO_CHROMIUM</code> to a <a href="https://developer.chrome.com/blog/chrome-headless-shell">new <code>chrome-headless-shell</code> binary</a> or to an older chrome version (between 128 and 132). Set <code>QUARTO_CHROMIUM_HEADLESS_MODE</code> to <code>old</code> to use old headless mode with that compatible version.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/10961">#10961</a>): Add more information on which Chrome Headless will be used in <code>quarto check install</code>. This is helpful to help debug mermaid issues.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11441">#11441</a>): Don’t add newlines around shortcodes during processing.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/discussions/11606">#11606</a>): Added a new <code>QUARTO_DOCUMENT_FILE</code> env var available to computation engine to the name of the file currently being rendered.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11643">#11643</a>): Improve highlighting of nested code block inside markdown code block, i.e.&nbsp;using <code>```{python}</code> or <code>```python</code> inside <code>````markdown</code> fenced code block.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11788">#11788</a>): <code>quarto add</code> and <code>quarto remove</code> will return non-zero code when they fail.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/11803">#11803</a>): Added a new CLI command <code>quarto call</code>. First users of this interface are the new <code>quarto call engine julia ...</code> subcommands.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11951">#11951</a>): Raw LaTeX table without <code>tbl-</code> prefix label for using Quarto crossref are now correctly passed through unmodified.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/11967">#11967</a>): Produce a better error message when YAML metadata with <code>!expr</code> tags are used outside of <code>knitr</code> code cells.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12117">#12117</a>): Color output to stdout and stderr is now correctly rendered for <code>html</code> format in the Jupyter and Julia engines. This change includes support for ANSI color codes in output.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12264">#12264</a>): Upgrade <code>dart-sass</code> to 1.85.1.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12238">#12238</a>): Do not truncate very long console errors (e.g.&nbsp;in Jupyter Notebook with backtrace).</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12338">#12338</a>): Add an additional workaround for the SCSS parser used in color variable extraction.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12369">#12369</a>): <code>quarto preview</code> correctly throws a YAML validation error when a <code>format</code> key does not conform.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12459">#12459</a>): Add <code>.page-inset-*</code> classes to completions.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/pull/12492">#12492</a>): Improve shortcode extension template with new parameters and a link to docs.</li>
+<li>(<a href="https://github.com/quarto-dev/quarto-cli/issues/12513">#12513</a>): Fix an issue with <code>quarto preview</code> when using <strong>DiagrammeR</strong> R package for Graphiz diagram.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script type="text/javascript">
+
+// replace cmd keyboard shortcut w/ control on non-Mac platforms
+const kPlatformMac = typeof navigator !== 'undefined' ? /Mac/.test(navigator.platform) : false;
+if (!kPlatformMac) {
+   var kbds = document.querySelectorAll("kbd")
+   kbds.forEach(function(kbd) {
+      kbd.innerHTML = kbd.innerHTML.replace(/⌘/g, '⌃');
+   });
+}
+
+// tweak headings in pymd
+document.querySelectorAll(".pymd span.co").forEach(el => {
+   if (!el.innerText.startsWith("#|")) {
+      el.style.fontWeight = 1000;
+   }
+});
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/quarto\.org");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Proudly supported by <a href="https://posit.co"><img src="../../../../images/Posit-Logos-2024_horiz-full-color.svg" class="light-content img-fluid" alt="Posit" width="65"></a> <a href="https://posit.co"><img src="../../../../images/Posit-Logos-2024_horiz-full-color-white-text.svg" class="dark-content img-fluid" alt="Posit" width="65"></a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html">
+<p>About</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../../docs/faq/index.html">
+<p>FAQ</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../../license.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../../trademark.html">
+<p>Trademark</p>
+</a>
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/quarto-dev/quarto-web/edit/main/docs/download/changelog/1.7/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/quarto-dev/quarto-cli/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://bsky.app/profile/quarto.org">
+      <i class="bi bi-bluesky" role="img" aria-label="Quarto Bluesky">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/quarto-dev/quarto-cli">
+      <i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://quarto.org/docs/blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="Quarto Blog RSS">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

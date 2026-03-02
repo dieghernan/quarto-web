@@ -1,0 +1,229 @@
+# Creating a Website
+
+## Overview
+
+Quarto Websites are a convenient way to publish groups of documents. Documents published as part of a website share navigational elements, rendering options, and visual style.
+
+Website navigation can be provided through a global navbar, a sidebar with links, or a combination of both for sites that have multiple levels of content. You can also enable full text search for websites.
+
+Quarto websites can be published to a wide variety of destinations including GitHub Pages, Netlify, Posit Connect, or any other static hosting service or intranet web server. See the documentation on [Publishing Websites](../../docs/publishing/index.llms.md) for additional details.
+
+## Quick Start
+
+Follow the Quick Start for your tool of choice to get a simple website up and running. After covering the basics, read on to learn about website navigation and other more advanced website features.
+
+## ![](../../docs/get-started/images/positron-logo.svg)Positron
+
+To create a new website project within Positron, execute the **Quarto: Create Project** command from the command-palette:
+
+![](images/positron-create-project-command-dark.png)![](images/positron-create-project-command.png)
+
+Then, select **Website Project**:
+
+![](images/positron-create-project-website-dark.png)![](images/positron-create-project-website.png)
+
+You’ll be prompted to select a parent directory to create the project within. Then, you’ll be asked to name the directory for your website project:
+
+![](images/positron-create-project-directory-dark.png)![](images/positron-create-project-directory.png)
+
+The new website project will be created and opened within Positron. Click the **Preview** button (![Preview icon](../../docs/tools/images/vscode-preview-icon.svg)![Preview icon](../../docs/tools/images/vscode-preview-icon-white.svg)) to preview the website:
+
+![](images/positron-create-project-render-dark.png)![](images/positron-create-project-render.png)
+
+The preview will show to the right of the source file. As you re-render `index.qmd` or render other files like `about.qmd`, the preview is automatically updated.
+
+## ![](../../docs/get-started/images/vscode-logo.png)VS Code
+
+To create a new website project within VS Code, execute the **Quarto: Create Project** command from the command-palette:
+
+![](images/vscode-create-project-command.png)
+
+Then, select **Website Project**:
+
+![](images/vscode-create-project-website.png)
+
+You’ll be prompted to select a parent directory to create the project within. Then, you’ll be asked to name the directory for your website project:
+
+![](images/vscode-create-project-directory.png)
+
+The new website project will be created and opened within VS Code. Click the **Preview** button (![Preview icon](../../docs/tools/images/vscode-preview-icon.svg)![Preview icon](../../docs/tools/images/vscode-preview-icon-white.svg))to preview the website:
+
+![](images/vscode-create-project-render.png)
+
+The preview will show to the right of the source file. As you re-render `index.qmd` or render other files like `about.qmd`, the preview is automatically updated.
+
+## ![](../../docs/get-started/images/rstudio-logo.png)RStudio
+
+To create a new website project within RStudio, use the **New Project** command and select **Quarto Website**:
+
+![](images/rstudio-project-new-directory.png)
+
+![](images/rstudio-project-website.png)
+
+Then, provide a directory name and other relevant options for the website:
+
+![A section of the 'New Project Wizard' menu from Rstudio. This section is titled 'Create Quarto Website'. The Quarto logo is displayed on the left. On the right are fields for 'Directory name', and 'Create project as subdirectory of:'. Underneath that are options for 'Engine'. The option for 'Engine' is set to 'None'. Underneath are options for 'Create a git repository', and 'Use visual markdown editor'.There are buttons for 'Create Project' and 'Cancel' arranged side-by-side in the bottom right of the window. There is an option to 'Open in new session' in the button left corner.](images/rstudio-project-website-options.png)
+
+Click the **Render** button to preview the website:
+
+![](images/rstudio-project-website-preview.png)
+
+The preview will show to the right of the source file. As you re-render `index.qmd` or render other files like `about.qmd`, the preview is automatically updated.
+
+## ![](../../docs/get-started/images/text-editor-logo.png)Terminal
+
+To create a new website project from the Terminal, use the `quarto create project` command, following the prompt to select the type and to provide a name for the project (will be used as the directory name):
+
+``` bash
+quarto create project website mysite
+```
+
+This will create the scaffolding for a simple website in the `mysite` sub-directory. Use the `quarto preview` command to render and preview the website:
+
+``` bash
+quarto preview mysite
+```
+
+The website preview will open in a new web browser. As you edit and save `index.qmd` (or other files like `about.qmd`) the preview is automatically updated.
+
+## Workflow
+
+Above we have demonstrated how to create and edit a simple website. In this section we go into more depth on website workflow.
+
+### Config File
+
+Every website has a `_quarto.yml` config file that provides website options as well as defaults for HTML documents created within the site. For example, here is the default config file for the simple site created above:
+
+``` yaml
+project:
+  type: website
+
+website:
+  title: "today"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+
+See the documentation on [Website Navigation](../../docs/websites/website-navigation.llms.md) and [Website Tools](../../docs/websites/website-tools.llms.md) for additional details on website configuration. See [HTML Documents](../../docs/output-formats/html-basics.llms.md) for details on customizing HTML format options.
+
+### Website Preview
+
+If you are using VS Code or RStudio, the **Preview** button (VS Code), or **Render** button (RStudio), automatically renders and runs `quarto preview` in an embedded window. You can also do the same thing from the Terminal if need be:
+
+``` bash
+# preview the website in the current directory
+quarto preview
+```
+
+Note that when you preview a site (either using VS Code / RStudio integrated tools or from the terminal) changes to configuration files (e.g. `_quarto.yml`) as well as site resources (e.g. theme or CSS files) will cause an automatic refresh of the preview.
+
+You can customize the behavior of the preview server (port, whether it opens a browser, etc.) using command line options or the `_quarto.yml` config file. See `quarto preview help` or the [project file reference](../../docs/reference/projects/options.llms.md#preview) for additional details.
+
+> **IMPORTANT:**
+>
+> As you preview your site, pages will be rendered and updated. However, if you make changes to global options (e.g. `_quarto.yml` or included files) you need to fully re-render your site to have all of the changes reflected. Consequently, you should always fully `quarto render` your site before deploying it, even if you have already previewed changes to some pages with the preview server.
+
+### Website Render
+
+To render (but not preview) a website, use the `quarto render` command, which will render the website into the `_site` directory by default:
+
+``` bash
+# render the website in the current directory
+quarto render 
+```
+
+See the [Project Basics](../../docs/projects/quarto-projects.llms.md) article to learn more about working with projects, including specifying an explicit list of files to render, as well as adding custom pre and post render scripts to your project.
+
+## Render Targets
+
+By default, all valid Quarto input files (.qmd, .ipynb, .md, .Rmd) in the project directory will be rendered, save for ones with:
+
+1.  A file or directory prefix of `.` (hidden files)
+
+2.  A file or directory prefix of `_` (typically used for non top-level files, e.g. ones [included](../../docs/authoring/includes.llms.md) in other files)
+
+3.  Files named `README.md` or `README.qmd` (which are typically not actual render targets but rather informational content about the source code to be viewed in the version control web UI).
+
+If you don’t want to render all of the target documents in a project, or you wish to control the order of rendering more precisely, you can add a `project: render: [files]` entry to your project metadata. For example:
+
+``` yaml
+project:
+  render:
+    - section1.qmd
+    - section2.qmd
+```
+
+Note that you can use wildcards when defining the `render` list. For example:
+
+``` yaml
+project:
+  render:
+    - section*.qmd
+```
+
+You can also use the prefix `!` to ignore some files or directories in the `render` list. Note that in that case you need to start by specifying everything you *do* want to render. For example:
+
+``` yaml
+project:
+  render:
+    - "*.qmd"
+    - "!ignored.qmd"
+    - "!ignored-dir/"
+```
+
+> **NOTE:**
+>
+> If the name of your output file needs to start with `.` or `_` (for instance `_index.md` for Hugo users), you must name the Quarto input file without the prefix (for instance `index.qmd`) and add an explicit `output-file` parameter in the YAML such as
+>
+> ``` yaml
+> ---
+> output-file: _index.md
+> ---
+> ```
+
+## Linking
+
+When creating links between pages in your site, you can provide the source file as the link target (rather than the `.html` file). You can also add hash identifiers (`#)` to the source file if you want to link to a particular section in the document. For example:
+
+``` markdown
+[about](about.qmd)
+[about](about.qmd#section)
+```
+
+One benefit of using this style of link as opposed to targeting `.html` files directly is that if you at some point convert your site to a [book](../../docs/books/index.llms.md) the file-based links will automatically resolve to section links for formats that produce a single file (e.g. PDF or MS Word).
+
+## Website Theme
+
+The look of your website is controlled via [HTML themes](../../docs/output-formats/html-themes.llms.md). These options are set under the `format` option in your website configuration file:
+
+``` yaml
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+```
+
+See [HTML Theming](../../docs/output-formats/html-themes.llms.md) for details on the available options.
+
+## Learning More
+
+Once you’ve got a basic website up and running check out these articles for various ways to enhance your site:
+
+- [Website Navigation](../../docs/websites/website-navigation.llms.md) describes various ways to add navigation to a website, including top-level navigation bars, sidebars, or hybrid designs that uses both. This article also covers adding full-text search as well as a site-wide footer.
+
+- [Website Tools](../../docs/websites/website-tools.llms.md) covers adding social metadata (e.g. for Twitter Cards) and Google Analytics to your site, as well as enabling users to toggle between dark and light color schemes.
+
+- [Website Options](../../docs/reference/projects/websites.llms.md) provides a comprehensive reference to all of the available website options.
+
+- [Code Execution](../../docs/projects/code-execution.llms.md) provides tips for optimizing the rendering of sites with large numbers of documents or expensive computations.
+
+- [Publishing Websites](../../docs/publishing/index.llms.md) enumerates the various options for publishing websites including GitHub Pages, Netlify, and Posit Connect.

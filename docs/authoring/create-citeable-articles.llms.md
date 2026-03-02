@@ -1,0 +1,175 @@
+# Creating Citeable Articles
+
+You can make it easier for others to cite your work by providing additional metadata with the YAML front-matter of your article. Citations can be provided for both articles published to the web or for articles published in journals (with or without a DOI).
+
+## Web Articles
+
+To provide a citation for an article published to the web, include author and date metadata as well as a citation url. For example:
+
+``` yaml
+---
+title: "Summarizing Output for Reproducible Documents"
+description: | 
+  A summary of the best practices for summarizing output of reproducible scientific documents.
+date: 5/4/2018
+author:
+  - name: Norah Jones 
+    url: https://example.com/norahjones
+    affiliation: Spacely Sprockets
+    affiliation-url: https://example.com/spacelysprockets
+citation:
+  url: https://example.com/summarizing-output
+bibliography: biblio.bib
+---
+```
+
+Name particles can be further defined in the `name` key following the [Citation Style Language (CSL) specification for naming particles](https://docs.citationstyles.org/en/stable/specification.llms.md#name-particles). If you omit the citation url, Quarto will attempt to generate a citation url by using the `site-url` and the current page’s location. If you’d like to allow Quarto to generate the citation url, you can omit the citation url and simply enable citation output on the page. For example:
+
+``` yaml
+---
+title: "Summarizing Output for Reproducible Documents"
+description: | 
+  A summary of the best practices for summarizing output of reproducible scientific documents.
+date: 5/4/2018
+author:
+  - name: Norah Jones 
+    url: https://example.com/norahjones
+    affiliation: Spacely Sprockets
+    affiliation-url: https://example.com/spacelysprokets
+citation: true
+bibliography: biblio.bib
+---
+```
+
+When this metadata is available, a citation appendix is automatically added to the article. The citation appendix will present both a copy-able `bibtex` representation of the document and a formatted representation of the citation (based upon the document’s CSL file, if specified). For example:
+
+![Appearance of a citation appendix contains both BibTeX citation and plain text citation for attribution.](images/appendix-citation.png)
+
+By default both the `bibtex` and formatted representations are displayed. You can use the `appendix-cite-as` option to control this behavior:
+
+|  |  |
+|----|----|
+| `appendix-cite-as: false` | Do not include any citations in the appendix. |
+| `appendix-cite-as: bibtex` | Show only the BibTeX version of the citation. |
+| `appendix-cite-as: display` | Show only the display version of the citation. |
+
+## Journal Articles
+
+If your article is published within a Journal, you can add the following the additional fields to generate the appropriate citation entry:
+
+``` yaml
+---
+title: "Summarizing Output for Reproducible Documents"
+description: | 
+  A summary of the best practices for summarizing output of reproducible scientific documents.
+date: 5/4/2018
+author:
+  - name: Norah Jones 
+    url: https://example.com/norahjones
+    affiliation: Spacely Sprockets
+    affiliation-url: https://example.com/spacelysprokets
+citation:
+  type: article-journal
+  container-title: "Journal of Data Science Software"
+  doi: "10.23915/reprodocs.00010"
+  url: https://example.com/summarizing-output
+bibliography: biblio.bib
+---
+```
+
+This is how the citation is presented in the appendix:
+
+![Appearance of a journal citation in document appendix with both BibTex and plain text citations given for attribution.](images/appendix-citation-journal.png)
+
+## Other Types of Documents
+
+The BibTeX and formatted attribution displayed in the document will be generated based upon the complete citation information that is present in the `citation` key, which is based upon the [Citation Style Language (CSL) specification for items](https://docs.citationstyles.org/en/stable/specification.llms.md). You can learn more about the available options in the [Citation Metadata Reference](../../docs/reference/metadata/citation.llms.md).
+
+## Google Scholar
+
+Quarto documents can include metadata compatible with the format indexed by [Google Scholar](https://scholar.google.com). This makes it easy for indexing engines (Google Scholar or otherwise) to extract not only a citation for your article but also information on other sources which you cited. To enable this use the `google-scholar` option:
+
+``` yaml
+title: "Summarizing Output for Reproducible Documents"
+description: | 
+  A summary of the best practices for summarizing output of reproducible scientific documents.
+date: 5/4/2018
+author:
+  - name: Norah Jones 
+    url: https://example.com/norahjones
+    affiliation: Spacely Sprockets
+    affiliation-url: https://example.com/spacelysprokets
+citation:
+  type: article-journal
+  container-title: "Journal of Data Science Software"
+  doi: "10.23915/reprodocs.00010"
+  url: https://example.com/summarizing-output
+bibliography: biblio.bib 
+google-scholar: true
+```
+
+For example, here is the Google Scholar metadata automatically included for a document created with the above metadata:
+
+``` html
+<meta name="citation_title" content="Summarizing Output for Reproducible Documents">
+<meta name="citation_author" content="Norah Jones">
+<meta name="citation_online_date" content="2018-05-04">
+<meta name="citation_fulltext_html_url" content="https://example.com/summarizing-output">
+<meta name="citation_publication_date" content="2018-05-04">
+<meta name="citation_journal_title" content="Journal of Data Science Software">
+<meta name="citation_reference" content="citation_title=Donald knuth;,citation_fulltext_html_url=http://dx.doi.org/10.7551/mitpress/
+5485.003.0041;,citation_publication_date=1989;,citation_journal_title
+=undefined;">
+```
+
+In the addition to the citation metadata from this document described above, Quarto will automatically generate a `citatation_reference` entry for each of the entries included in the document’s bibliography.
+
+## Citation Fields
+
+Quarto’s approach to emitting scholarly metadata is to take the standard CSL fields and make them into the corresponding Google Scholar / Zotero / Highwire metadata tags as appropriate. The following fields, when specified under the `citation` key of the document metadata, will generate scholarly meta tags in the rendered HTML document as described. These fields comprise the required Google Scholar fields as well as additional, optional fields that may also be included.
+
+[TABLE]
+
+For example, citation data for a published conference paper defined as such in the document front matter:
+
+``` yaml
+title: A Published Conference Paper
+author:
+  - name: Norah Jones
+    affiliation: School of Hard Knocks
+    orcid: 0000-0001-8715-9476
+citation:
+  type: paper-conference
+  container-title: "Proceedings of the annual conference of the Society for Research"
+  publisher: "Society for Research"
+  issued: 2020/09/23
+  volume: 2
+  doi: "10.23915/reprodocs.00010"
+  url: https://example.com/summarizing-output
+  page-first: 46
+  page-last: 53
+  editor:
+  - Don Draper
+  - Nick Fury
+google-scholar: true  
+```
+
+provides HTML metadata like:
+
+``` html
+<meta name="citation_title" content="A Published Conference Paper">
+<meta name="citation_author" content="Norah Jones">
+<meta name="citation_editor" content="Nick Cage">
+<meta name="citation_editor" content="Don Draper">
+<meta name="citation_publication_date" content="2020-09-23">
+<meta name="citation_cover_date" content="2020-09-23">
+<meta name="citation_year" content="2020">
+<meta name="citation_fulltext_html_url" content="https://example.com/summarizing-output">
+<meta name="citation_doi" content="10.23915/reprodocs.00010">
+<meta name="citation_volume" content="2">
+<meta name="citation_language" content="en">
+<meta name="citation_conference_title" content="Proceedings of the annual conference of the Society for Research">
+<meta name="citation_conference" content="Society for Research">
+```
+
+## Footnotes

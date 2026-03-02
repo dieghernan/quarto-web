@@ -1,0 +1,37 @@
+# PDF Format Improvements
+
+> **NOTE:**
+>
+> The SVG and Remote Images content from this page has been migrated to the main documentation:
+>
+> - [SVG Images](../../../docs/output-formats/pdf-basics.llms.md#svg-images)
+> - [Remote Images](../../../docs/output-formats/pdf-basics.llms.md#remote-images)
+>
+> This page is retained for historical reference.
+
+## SVG Images
+
+Starting in Quarto 1.3, we support rendering of PDF documents that include SVG files, automatically converting them to PDF images if `rsvg-convert` is available on the system path during rendering.
+
+You can learn more about installing `librsvg` (which provides `rsvg-convert`), see <https://wiki.gnome.org/Projects/LibRsvg>. To install on specific platforms, follow the below instructions:
+
+- On MacOS, you can use Homebrew (<https://formulae.brew.sh/formula/librsvg>) `brew install librsvg`
+
+- Tarballs for Linux are available here: <https://download.gnome.org/sources/librsvg/>
+
+- On Windows, you can [install using chocolatey](https://community.chocolatey.org/packages/rsvg-convert): `choco install rsvg-convert`
+
+## Remote Images
+
+Starting in Quarto 1.3, when rendering PDFs, Quarto will automatically fetch remote image references and properly embed them within the PDF.
+
+## Filenames with Modifiers
+
+In quarto 1.3, the default filename for PDF files includes variants and modifiers, and so the following YAML front matter will work:
+
+``` yml
+# example.qmd
+format:
+  pdf+simple: default # generates example+simple.pdf
+  pdf: default # generates example.pdf
+```

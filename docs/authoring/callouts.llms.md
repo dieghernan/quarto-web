@@ -1,0 +1,183 @@
+# Callout Blocks
+
+Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios.
+
+## Callout Types
+
+There are five different types of callouts available.
+
+- `note`
+- `warning`
+- `important`
+- `tip`
+- `caution`
+
+The color and icon will be different depending upon the type that you select. Here are what the various types look like in HTML output:
+
+> **NOTE:**
+>
+> Note that there are five types of callouts, including: `note`, `tip`, `warning`, `caution`, and `important`.
+
+> **WARNING:**
+>
+> Callouts provide a simple way to attract attention, for example, to this warning.
+
+> **IMPORTANT:**
+>
+> The callout heading is provided by the callout type, with the expected heading (i.e., Note, Warning, Important, Tip, or Caution).
+
+> **TIP:**
+>
+> This is an example of a callout with a title. Providing a callout heading is optional.
+
+> **CAUTION:**
+>
+> This is an example of a ‘collapsed’ caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+
+This feature is not available for Revealjs presentations yet (See Issue [1328](https://github.com/quarto-dev/quarto-cli/issues/1328))
+
+## Markdown Syntax
+
+Create callouts in markdown using the following syntax (note that the first markdown heading used within the callout is used as the callout heading):
+
+``` markdown
+::: {.callout-note}
+Note that there are five types of callouts, including:
+`note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+::: {.callout-tip}
+## Tip with Title
+
+This is an example of a callout with a title.
+:::
+
+::: {.callout-caution collapse="true"}
+## Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+```
+
+Note that above callout titles are defined by using a heading at the top of the callout. If you prefer, you can also specify the title using the `title` attribute. For example:
+
+``` markdown
+::: {.callout-tip title="Tip with Title"}
+This is a callout with a title.
+:::
+```
+
+## Customizing Appearance
+
+### Collapse
+
+You can create ‘folded’ callouts that can be expanded by the user by settings the `collapse` attribute on the callout. If you set `collapse=true`, the callout will be expandable, but will be collapsed by default. If you set `collapse=false`, the callout will be expandable, but will be expanded by default.
+
+### Appearance
+
+Callouts have 3 different looks you can use.
+
+|  |  |
+|----|----|
+| `default` | The default appearance with colored header and an icon. |
+| `simple` | A lighter weight appearance that doesn’t include a colored header background. |
+| `minimal` | A minimal treatment that applies borders to the callout, but doesn’t include a header background color or icon. |
+
+You can set the callout appearance either globally in the document (or project yaml):
+
+``` yaml
+callout-appearance: simple
+```
+
+or by setting the `appearance` attribute on the callout. For example
+
+``` markdown
+::: {.callout-note appearance="simple"}
+
+## Pay Attention
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+```
+
+which appears as:
+
+> **NOTE:**
+>
+> Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+### Icons
+
+In addition to controlling the appearance of the callout, you can also choose to directly suppress the icon by setting the global option in your document (or project) yaml:
+
+``` yaml
+callout-icon: false
+```
+
+or by setting an attribute directly on the callout:
+
+``` markdown
+::: {.callout-note icon=false}
+
+## Pay Attention
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+```
+
+Which will appear as:
+
+> **NOTE:**
+>
+> Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+## Format Support
+
+The following formats render callouts as illustrated above:
+
+- `format: html`
+- `format: pdf`
+- `format: typst`
+- `format: docx`
+- `format: epub`
+- `format: revealjs` (without collapse option)
+
+Note that callout rendering for `format: html` is not available when you disable the standard HTML theme (e.g. if you specify the `theme: none` option). Also, some features are specific to document using Bootstrap, like collapsible callouts, and won’t work in other documents.
+
+When the target format doesn’t support callouts, they are rendered as a simple blockquote with the title in bold.
+
+## Cross-References
+
+To cross-reference a callout, add an ID attribute that starts with the appropriate callout prefix (see [Table 1](#tbl-callout-prefixes)). You can then reference the callout using the usual `@` syntax. For example, here we add the ID `#tip-example` to the callout, and then refer back to it:
+
+``` markdown
+::: {#tip-example .callout-tip}
+## Cross-Referencing a Tip
+
+Add an ID starting with `#tip-` to reference a tip.
+:::
+
+See @tip-example...
+```
+
+This renders as follows:
+
+> **TIP:**
+>
+> Add an ID starting with `#tip-` to reference a tip.
+
+See [Tip 1](#tip-example)…
+
+The prefixes for each type of callout are:
+
+| Callout Type | Prefix  |
+|--------------|---------|
+| `note`       | `#nte-` |
+| `tip`        | `#tip-` |
+| `warning`    | `#wrn-` |
+| `important`  | `#imp-` |
+| `caution`    | `#cau-` |
+
+Table 1: Prefixes for callout cross-references

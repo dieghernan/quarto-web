@@ -1,0 +1,129 @@
+# JATS Options
+
+JATS (Journal Article Tag Suite) is an XML format for marking up and exchanging journal content. You can learn more about JATS here <https://jats.nlm.nih.gov/publishing/>.
+
+``` yaml
+format: jats
+format: jats_archiving
+format: jats_articleauthoring
+format: jats_publishing
+```
+
+## Title & Author
+
+|  |  |
+|:---|:---|
+| `title` | Document title |
+| `date` | Document date |
+| `date-format` | Date format for the document |
+| `author` | Author or authors of the document |
+| `affiliation` | The list of organizations with which contributors are affiliated. Each institution is added as an \[`<aff>`\] element to the author’s contrib-group. See the Pandoc [JATS documentation](https://pandoc.org/jats.llms.md) for details on `affiliation` fields. |
+| `copyright` | Licensing and copyright information. This information is rendered via the [`<permissions>`](https://jats.nlm.nih.gov/publishing/tag-library/1.2/element/permissions.llms.md) element. The variables `type`, `link`, and `text` should always be used together. See the Pandoc [JATS documentation](https://pandoc.org/jats.llms.md) for details on `copyright` fields. |
+| `article` | Information concerning the article that identifies or describes it. The key-value pairs within this map are typically used within the [`<article-meta>`](https://jats.nlm.nih.gov/publishing/tag-library/1.2/element/article-meta.llms.md) element. See the Pandoc [JATS documentation](https://pandoc.org/jats.llms.md) for details on `article` fields. |
+| `journal` | Information on the journal in which the article is published. See the Pandoc [JATS documentation](https://pandoc.org/jats.llms.md) for details on `journal` fields. |
+| `abstract` | Summary of document |
+| `notes` | Additional notes concerning the whole article. Added to the article’s frontmatter via the [`<notes>`](https://jats.nlm.nih.gov/publishing/tag-library/1.2/element/notes.llms.md) element. |
+| `tags` | List of keywords. Items are used as contents of the [`<kwd>`](https://jats.nlm.nih.gov/publishing/tag-library/1.2/element/kwd.llms.md) element; the elements are grouped in a [`<kwd-group>`](https://jats.nlm.nih.gov/publishing/tag-library/1.2/element/kwd-group.llms.md) with the [`kwd-group-type`](https://jats.nlm.nih.gov/publishing/tag-library/1.2/attribute/kwd-group-type.llms.md) value `author`. |
+| `order` | Order for document when included in a website automatic sidebar menu. |
+
+## Format Options
+
+[TABLE]
+
+## Numbering
+
+|  |  |
+|:---|:---|
+| `number-sections` | Number section headings rendered output. By default, sections are not numbered. Sections with class `.unnumbered` will never be numbered, even if `number-sections` is specified. |
+| `shift-heading-level-by` | Shift heading levels by a positive or negative integer. For example, with `shift-heading-level-by: -1`, level 2 headings become level 1 headings, and level 3 headings become level 2 headings. Headings cannot have a level less than 1, so a heading that would be shifted below level 1 becomes a regular paragraph. Exception: with a shift of -N, a level-N heading at the beginning of the document replaces the metadata title. |
+
+## Layout
+
+|        |                                                                 |
+|:-------|:----------------------------------------------------------------|
+| `grid` | Properties of the grid system used to layout Quarto HTML pages. |
+
+## Code
+
+|  |  |
+|:---|:---|
+| `code-annotations` | The style to use when displaying code annotations. Set this value to false to hide code annotations. |
+
+## Execution
+
+Execution options should be specified within the `execute` key. For example:
+
+``` yaml
+execute:
+  echo: false
+  warning: false
+```
+
+[TABLE]
+
+## Figures
+
+[TABLE]
+
+## Tables
+
+[TABLE]
+
+## Links
+
+[TABLE]
+
+## References
+
+[TABLE]
+
+## Cross-References
+
+|  |  |
+|:---|:---|
+| `crossref` | Configuration for cross-reference labels and prefixes. See [Cross-Reference Options](https://quarto.org/docs/reference/metadata/crossref.llms.md) for more details. |
+
+## Citation
+
+[TABLE]
+
+## Language
+
+[TABLE]
+
+## Includes
+
+|  |  |
+|:---|:---|
+| `metadata-files` | Read metadata from the supplied YAML (or JSON) files. This option can be used with every input format, but string scalars in the YAML file will always be parsed as Markdown. Generally, the input will be handled the same as in YAML metadata blocks. Values in files specified later in the list will be preferred over those specified earlier. Metadata values specified inside the document, or by using `-M`, overwrite values specified with this option. |
+
+## Metadata
+
+[TABLE]
+
+## Rendering
+
+|  |  |
+|:---|:---|
+| `from` | Format to read from. Extensions can be individually enabled or disabled by appending +EXTENSION or -EXTENSION to the format name (e.g. markdown+emoji). |
+| `output-file` | Output file to write to |
+| `output-ext` | Extension to use for generated output file |
+| `template` | Use the specified file as a custom template for the generated document. |
+| `template-partials` | Include the specified files as partials accessible to the template for the generated content. |
+| `filters` | Specify executables or Lua scripts to be used as a filter transforming the pandoc AST after the input is parsed and before the output is written. |
+| `shortcodes` | Specify Lua scripts that implement shortcode handlers |
+| `keep-md` | Keep the markdown file generated by executing code |
+| `keep-ipynb` | Keep the notebook file generated from executing code. |
+| `ipynb-filters` | Filters to pre-process ipynb files before rendering to markdown |
+| `ipynb-shell-interactivity` | Specify which nodes should be run interactively (displaying output from expressions) |
+| `plotly-connected` | If true, use the “notebook_connected” plotly renderer, which downloads its dependencies from a CDN and requires an internet connection to view. |
+| `extract-media` | Extract images and other media contained in or linked from the source document to the path DIR, creating it if necessary, and adjust the images references in the document so they point to the extracted files. Media are downloaded, read from the file system, or extracted from a binary container (e.g. docx), as needed. The original file paths are used if they are relative paths not containing … Otherwise filenames are constructed from the SHA1 hash of the contents. |
+| `resource-path` | List of paths to search for images and other resources. |
+| `default-image-extension` | Specify a default extension to use when image paths/URLs have no extension. This allows you to use the same source for formats that require different kinds of images. Currently this option only affects the Markdown and LaTeX readers. |
+| `abbreviations` | Specifies a custom abbreviations file, with abbreviations one to a line. This list is used when reading Markdown input: strings found in this list will be followed by a nonbreaking space, and the period will not produce sentence-ending space in formats like LaTeX. The strings may not contain spaces. |
+| `dpi` | Specify the default dpi (dots per inch) value for conversion from pixels to inch/ centimeters and vice versa. (Technically, the correct term would be ppi: pixels per inch.) The default is `96`. When images contain information about dpi internally, the encoded value is used instead of the default specified by this option. |
+| `html-table-processing` | If `none`, do not process tables in HTML input. |
+
+## Text Output
+
+[TABLE]

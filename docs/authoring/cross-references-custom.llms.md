@@ -1,0 +1,110 @@
+# Custom Float Cross-Reference Types
+
+## Overview
+
+Cross-referenceable [figures](#figures), [tables](#tables) and [code listings](#code-listings) are examples of *float* cross-references. Floats can appear in the rendered document at locations other than where they are defined, i.e. they float, and usually have captions.
+
+You can define custom float cross-reference types using the `custom` key to the `crossref` option either in your document or project metadata. At a minimum, a custom type needs:
+
+- `kind`, which currently can only be `float`
+- `key`, the abbreviation used in the reference identifier (“In `@fig-1`, …”)
+- `reference-prefix`, used for the reference in output (“In Figure 1, …”)
+
+For example, the following YAML defines a new cross-reference type for videos:
+
+``` yaml
+crossref:
+  custom:
+    - kind: float
+      reference-prefix: Video
+      key: vid
+```
+
+You can then use this new type with the [Cross-Reference Div Syntax](../../docs/authoring/cross-references-divs.llms.md) in a document:
+
+``` markdown
+::: {#vid-cern}
+
+{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}
+
+"CERN: The Journey of Discovery"
+
+:::
+
+In @vid-cern...
+```
+
+Which renders as:
+
+# An error occurred.
+
+Unable to execute JavaScript.
+
+Video 1: “CERN: The Journey of Discovery”
+
+In [Video 1](#vid-cern)…
+
+There are some additional options that give you more control over the appearance of the cross-reference:
+
+- `caption-prefix`, the text used to construct the caption title shown under the float (“Figure 1: …”). If unspecified, Quarto will use the value of `reference-prefix`.
+
+- `caption-location`, the position of the the caption. Options are: `top`, `bottom` (default) or `margin`.
+
+- `space-before-numbering`, whether there is a space between the prefix and number. Set to `false` to omit the space (e.g. “Figure1”).
+
+You can find a complete listing of the options available for the `custom` key on the [Cross-Reference Options](../../docs/reference/metadata/crossref.llms.md#custom) reference page.
+
+## PDF Output
+
+If your output format is `pdf` you’ll also need to specify `latex-env`, a name to be used for the float environment wrapped around the element in the intermediate TeX. For example, to use the custom video reference type you could add `latex-env: video`:
+
+``` yaml
+format: pdf
+crossref:
+  custom:
+    - kind: float
+      reference-prefix: Video
+      key: vid
+      latex-env: video
+```
+
+You can add a listing of your custom cross-references to your document by including a raw LaTeX `\listof` command. The name of the command is `listof` followed by the value of `latex-env`, followed by an `s`. For example, for the custom video type above, where the `latex-env` was `video`, the command is `\listofvideos{}`:
+
+``` yaml
+---
+format: pdf
+crossref:
+  custom:
+    - kind: float
+      reference-prefix: Video
+      key: vid
+      latex-env: video
+---
+
+\listofvideos{}
+```
+
+By default, the title of the listing (e.g “List of Videos”) is constructed from the `reference-prefix` value. You can specify something else with the `latex-list-of-description` value.
+
+## Example: Supplemental Figures
+
+As another example of a custom cross-reference type consider a document with supplemental figures. For instance, you might require:
+
+- Supplemental figures have their own counter, distinct from that of figures.
+- Supplemental figures have labels that look like “Figure S1”, “Figure S2” etc.
+- Supplemental figures appear in their own “List of Supplementary Figures” listing.
+
+You could define this supplemental figure type with the following:
+
+``` yaml
+crossref:
+  custom:
+    - kind: float
+      key: suppfig
+      latex-env: suppfig
+      reference-prefix: Figure S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Figure
+```
+
+Note the use of `space-before-numbering: false`, which prevents a space between the `reference-prefix` or `caption-prefix` and the counter, so that labels will appear as “Figure S1”, “Figure S2” etc.

@@ -1,0 +1,85 @@
+# Layout
+
+Code
+
+You can control the layout of OJS content in a number of ways.
+
+## `page-layout: full`
+
+This example uses `page-layout: full` to have its contents occupy the entire width of the page:
+
+``` yaml
+---
+title: "Layout"
+format: 
+  html: 
+    page-layout: full
+---
+```
+
+Enclose the inputs in a sidebar panel and the outputs in a tabset panel (click the “Code” button at top right to see the full source code):
+
+``` js
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
+```
+
+## Plot
+
+``` js
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "body_mass_g", fill: "species", thresholds: 20}
+  ))
+  .plot({
+    facet: {
+      data: filtered,
+      x: "sex",
+      y: "species",
+      marginRight: 80
+    },
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
+```
+
+## Data
+
+``` js
+Inputs.table(filtered)
+```
+
+Read and filter the data based on the user’s inputs:
+
+``` js
+data = FileAttachment("palmer-penguins.csv").csv({typed: true})
+filtered = data.filter(function(penguin) {
+  return bill_length_min < penguin.bill_length_mm &&
+         islands.includes(penguin.island);
+})
+```
+
+## `width` and `layoutWidth`: fine-grained layout tracking
+
+Like ObservableHQ, `ojs` cells support the reactive `width` which tracks the `clientWidth` of the main HTML element.
+
+``` js
+width
+```
+
+In addition, if you need the widths of specific parts of the layout, use the CSS class `ojs-track-layout` in a div. Quarto’s OJS runtime tracks all such divs in `layoutWidth`. In this example, the tabset above has id `penguins-tabset`, and you can see its `clientWidth` reactively below. If this webpage is sufficiently wide, the sidebar will take up some of the space and the width of the resulting tabset will be smaller:
+
+``` js
+layoutWidth
+```

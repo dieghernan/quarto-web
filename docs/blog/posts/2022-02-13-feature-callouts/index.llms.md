@@ -1,0 +1,34 @@
+Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios.
+
+![Three calout boxes: A note (has a blue banner with info icon preceding the header), a tip (has a green banner with lightbulb icon preceding the header), and an important (has a red banner with info exclamation-point icon preceding the header).](callouts.png)
+
+## Callout Basics
+
+There are five different types of callouts available.
+
+- note
+- tip
+- important
+- caution
+- warning
+
+The color and icon will be different depending upon the type that you select.
+
+## Syntax
+
+Create callouts in markdown using the following syntax (note that the first markdown heading used within the callout is used as the callout heading):
+
+``` markdown
+:::{.callout-note}
+Note that there are five types of callouts, including:
+`note`, `tip`, `warning`, `caution`, and `important`.
+:::
+
+:::{.callout-tip}
+## Tip With Caption
+
+This is an example of a callout with a caption.
+:::
+```
+
+See our documentation on [Callouts](../../../../docs/authoring/callouts.llms.md), to learn more, including more about how to customize the appearance and behavior of callouts.
