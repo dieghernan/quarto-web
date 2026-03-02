@@ -59,33 +59,6 @@ jobs:
         if: ${{ format('{0}', inputs.prerelease) == 'false' || (!inputs.prerelease && contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name) && github.ref == 'refs/heads/main') }}
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: netlify
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          target: gh-pages
           render: false
 
-      - name: Deploy Prerelease website to Netlify
-        # Only do this step if 
-        # - workflow is called for release deploy with inputs.prerelease being true. It should not trigger if inputs.prerelease is null.
-        #   Though as in GHA null means false, no need to cast to string
-        # - workflow is triggered by push event on main branch
-        # - workflow is triggered by workflow_dispatch event 
-        #   (we need to protect also from workflow_dispatch inherited from workflow_call event - where inputs.prerelease is defined)
-        if: ${{ inputs.prerelease || (format('{0}', inputs.prerelease) != 'false' && contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name) && github.ref == 'refs/heads/prerelease') }}
-        id: netlify-deploy
-        uses: nwtgck/actions-netlify@v3
-        env:
-          NETLIFY_SITE_ID: 2a3da659-672b-4e5b-8785-e10ebf79a962
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        with:
-          publish-dir: './_site'
-          production-deploy: false
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: |
-            Deploy from GHA: ${{ format('manual from {0} at commit {1}', github.ref_name, github.sha) }}
-          alias: prerelease
-          # these all default to 'true'
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-          enable-commit-status: true
-          overwrites-pull-request-comment: false
-        timeout-minutes: 1
