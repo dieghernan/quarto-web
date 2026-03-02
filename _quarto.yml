@@ -61,11 +61,7 @@ website:
         href: https://quarto.org/docs/blog/index.xml
         aria-label: Quarto Blog RSS
   navbar:
-    background: light
-    logo: quarto.png
-    logo-alt: "Quarto logo."
-    title: false
-    collapse-below: lg
+    title: "Quarto"
     left:
       - text: "Overview"
         href: index.qmd
@@ -692,6 +688,7 @@ format:
             data-dark-lt="#ffffff"
             data-dark-gt="#ffffff"></script>
     include-after-body: js.html
+    highlight-style: arrow
     grid:
       sidebar-width: 250px
       body-width: 900px
