@@ -2,7 +2,7 @@
 
 Published
 
-March 2, 2026
+March 3, 2026
 
 In Quarto 1.3, callouts are represented as a custom AST node. You can create callout AST nodes in Lua filters with the `quarto.Callout` constructor. The constructor takes a single parameter, a table with entries `type`, `title`, and `content`, as described below. In Lua filters, callouts are represented as a table with the following fields:
 

@@ -2,7 +2,7 @@
 
 Published
 
-March 2, 2026
+March 3, 2026
 
 In Quarto 1.3, conditional blocks are represented as a custom AST node. You can create conditional block AST nodes in Lua filters with the `quarto.ConditionalBlock` constructor. The constructor takes a single parameter, a table with entries `node`, `behavior`, and `condition`, as described below. In Lua filters, conditional blocks are represented as a table with the following fields:
 

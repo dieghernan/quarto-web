@@ -2,7 +2,7 @@
 
 Published
 
-March 2, 2026
+March 3, 2026
 
 Quarto 1.4 includes the following new features:
 

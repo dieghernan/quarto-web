@@ -80,7 +80,7 @@ format:
   Rendered with Quarto {{< version >}}
   ```
 
-  Rendered with Quarto 1.9.27
+  Rendered with Quarto 1.9.28
 
 - Updated LaTeX and Beamer template partials:
 

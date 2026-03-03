@@ -14,7 +14,7 @@
 <title>Quarto</title>
 <link>https://quarto.org/docs/blog/</link>
 </image>
-<generator>quarto-1.9.27</generator>
+<generator>quarto-1.9.28</generator>
 <lastBuildDate>Mon, 24 Nov 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>posit::conf(2025) Quarto talks</title>
@@ -3237,7 +3237,7 @@ font-style: inherit;">true</span></span></code></pre></div></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1">Rendered with Quarto {{&lt; version &gt;}}</span></code></pre></div></div>
 </div>
 <div class="border p-1 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Rendered with Quarto 1.9.27</p>
+<p>Rendered with Quarto 1.9.28</p>
 </div>
 </div>
 </div></li>

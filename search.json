@@ -3149,7 +3149,7 @@
     "href": "docs/authoring/version.html#example",
     "title": "Displaying Quarto CLI Version",
     "section": "Example",
-    "text": "Example\nHere’s an example of the {{&lt; version &gt;}} shortcode in action:\n\nQuarto CLI 1.9.27 is being used to build this document.",
+    "text": "Example\nHere’s an example of the {{&lt; version &gt;}} shortcode in action:\n\nQuarto CLI 1.9.28 is being used to build this document.",
     "crumbs": [
       "Guide",
       "Authoring",
@@ -3163,7 +3163,7 @@
     "href": "docs/authoring/version.html#usage",
     "title": "Displaying Quarto CLI Version",
     "section": "Usage",
-    "text": "Usage\n\n\n\nQuarto CLI {{&lt; version &gt;}} is amazing.\n\n\nQuarto CLI 1.9.27 is amazing.",
+    "text": "Usage\n\n\n\nQuarto CLI {{&lt; version &gt;}} is amazing.\n\n\nQuarto CLI 1.9.28 is amazing.",
     "crumbs": [
       "Guide",
       "Authoring",

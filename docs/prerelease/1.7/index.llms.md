@@ -2,7 +2,7 @@
 
 Published
 
-March 2, 2026
+March 3, 2026
 
 Quarto 1.7 includes the following new features:
 
@@ -18,7 +18,7 @@ Quarto 1.7 includes the following new features:
   Rendered with Quarto {{< version >}}
   ```
 
-  Rendered with Quarto 1.9.27
+  Rendered with Quarto 1.9.28
 
 - Improvements to the `julia` engine:
 

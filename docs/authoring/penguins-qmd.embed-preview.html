@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.9.27">
+    <meta name="generator" content="quarto-1.9.28">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -164,13 +164,13 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-22baa70fb634a9e333c32ad69a2a7bf8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-47cc4bceaa66b3af55df14c5878ee381.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-22baa70fb634a9e333c32ad69a2a7bf8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-396162f43153b832540ece02227b56a6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7a2bcd1ae83060f7384bfd1811070740.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-396162f43153b832540ece02227b56a6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-6f954d2ecf8b869a2fdbc8c8712130be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-f696818df5267c6fa2b3be57ec5bed47.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-dark-3768a24ffa4d3545d1fd768497b211e2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-6f954d2ecf8b869a2fdbc8c8712130be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
      <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -527,10 +527,10 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
   
 
 
-</header>   <div id="44b4618d-25c6-4d83-8f88-7bc8bbcf2159" class="cell markdown">
+</header>   <div id="9a9512e4-bfef-41a3-b91a-64a2f9869d1e" class="cell markdown">
 
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="1a64e921-1bb5-4e9c-bf96-49fc7b350ae0" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="7f88b54c-a04f-4211-a77b-e015e93eb5ce" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -545,10 +545,10 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div></div>
-<div id="3501d80e-530b-44a3-9391-635617cc9a46" class="cell markdown">
+<div id="a3fdc70b-ba6a-4b11-b95b-fc56b27dae89" class="cell markdown">
 <p>Data from <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins R package</a></p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="c47b5c16-7744-4301-9aeb-316a05513866" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="351f4f81-8a6e-440d-862f-4b0ab3974045" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">|&gt;</span> count(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -559,7 +559,7 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
 3 Gentoo      124</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="458a0acd-83f8-45e9-b29d-3fa442546e27" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="06cf868d-0a8b-488a-94e0-9ce0dbd11345" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">&lt;-</span> c(<span class="st">"#FF8C00"</span>, <span class="st">"#A020F0"</span>, <span class="st">"#008B8B"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="cell-fig-size-scatter" class="cell">

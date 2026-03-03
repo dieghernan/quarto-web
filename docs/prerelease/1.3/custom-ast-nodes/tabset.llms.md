@@ -2,7 +2,7 @@
 
 Published
 
-March 2, 2026
+March 3, 2026
 
 In Quarto 1.3, tabsets are represented as a custom AST node. You can create conditional blocks in Lua filters with the `quarto.Tabset` constructor, with parameters `tabs`, `level` and `attr` as described above. In addition, you can use `quarto.Tab` to create the tab objects for the `tabs` field. `quarto.Tab` is more lenient with parameter types, converting strings to `Blocks` and `Inlines` as needed. In Lua filters, tabsets are represented as a table with the following fields:
 
