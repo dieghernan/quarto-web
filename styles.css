@@ -1,7 +1,7 @@
 .navbar-brand {
-  font-weight: 700;
-  font-family: "Inter Tight", Roboto;
-  color: #fff;
+	font-weight: 700;
+	font-family: "Inter Tight", Roboto;
+	color: #fff;
 }
 .callout.callout-style-simple {
 	border-right: 1px solid RGBA(var(--bs-body-color-rgb), 0.1);
@@ -13,4 +13,23 @@
 	border-right: 1px solid RGBA(var(--bs-body-color-rgb), 0.1);
 	border-top: 1px solid RGBA(var(--bs-body-color-rgb), 0.1);
 	border-bottom: 1px solid RGBA(var(--bs-body-color-rgb), 0.1);
+}
+
+div.sourceCode,
+pre,
+pre code:not(.sourceCode) {
+	background-color: RGBA(var(--bs-body-color-rgb), 0.01);
+	border: 1px solid RGBA(var(--bs-body-color-rgb), 0.1);
+}
+
+p code.sourceCode,
+li code.sourceCode,
+td code.sourceCode {
+	background-color: transparent;
+}
+
+/* Prevent overflow */
+main {
+	overflow-wrap: break-word;
+	hyphens: auto;
 }

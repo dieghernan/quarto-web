@@ -68,8 +68,8 @@ defaults:
         "'Inter Tight', Roboto, system-ui, -apple-system, 'Helvetica Neue',
         Arial"
       code_font: "'Fira Code', 'Courier New', monospace"
-      code-color: "#e83e8c"
-      code-color-dark: "#e75ca2"
+      code-color: "#e75ca2"
+      code-bg: "#343a40"
       navbar-light-bg: "#22272e"
       navbar-light-color: "#ffffff"
       navbar-light-toggler-border-color: "#22272e"
@@ -105,7 +105,8 @@ defaults:
       dropdown-dark-border-color: "#6c757d80"
       dropdown-dark-divider-bg: "#6c757d80"
       nav-pills-link-active-bg: "#24292f"
-      nav-pills-link-active-color: "#ffffff"
+      nav-pills-link-active-color: "#fff"
       nav-link-hover-color: "#6a788a"
       nav-link-color: "#6c757d"
       nav-link-font-weight: 800
+      nav-tabs-link-active-color: "#fff"
